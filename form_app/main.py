@@ -5,7 +5,7 @@ from starlette.middleware.sessions import SessionMiddleware
 
 from form_app.api.v1.router import api_router
 from form_app.core.config import settings
-from form_app.middleware.query import QueryValdationMiddleware
+from form_app.middleware.body_validator import BodyValdationMiddleware
 from form_app.services.utils import populate_db_with_forms
 
 
@@ -26,4 +26,4 @@ app = FastAPI(
 )
 app.include_router(api_router)
 app.add_middleware(SessionMiddleware, secret_key=settings.SECRET_KEY)
-app.add_middleware(QueryValdationMiddleware)
+app.add_middleware(BodyValdationMiddleware)

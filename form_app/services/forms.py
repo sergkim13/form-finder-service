@@ -9,12 +9,12 @@ class FormService:
         """Inits `FormService` instance."""
         self.form_repository = form_repository
 
-    async def find_form(self, query_params: dict) -> dict:
+    async def find_form_template(self, parameters: dict) -> dict:
         """
         Finds form in database and returns it's name or dict with field names and types
         if compatible form not found.
         """
-        form_to_find = self._build_form_to_find(query_params)
+        form_to_find = self._build_form_to_find(parameters)
         form = await self.form_repository.get(form_to_find)
 
         if not form:
