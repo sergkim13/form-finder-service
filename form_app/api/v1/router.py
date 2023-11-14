@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-from form_app.api.v1.forms import router
+from form_app.api.v1.routes.forms import router
 
 
 api_router = APIRouter(
