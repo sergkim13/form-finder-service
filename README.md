@@ -48,3 +48,9 @@ For running test script type `python3 script.py` in project directory, but you n
 Also you can run script in running container by typing: `docker exec forms_app sh -c 'python3 -m script'`.
 Type `make stop` (or `docker compose down`) to stop app container.  
 3. Type `make compose-test` (or `docker compose -f docker-compose.test.yaml -p testing run --rm test_app`) for running tests in docker container. Type `make stop-test` (or `docker compose -f docker-compose.test.yaml -p testing down`) to stop app container.
+
+### Demo test script:
+[![asciicast](https://asciinema.org/a/O4HfljTjZUdY8UlUm5G0ny8dz.svg)](https://asciinema.org/a/O4HfljTjZUdY8UlUm5G0ny8dz)
+
+### Demo tests:
+[![asciicast](https://asciinema.org/a/D4DT2PAFSwIAP7ZMZ3hX90Mv4.svg)](https://asciinema.org/a/D4DT2PAFSwIAP7ZMZ3hX90Mv4)
