@@ -1,7 +1,8 @@
 import re
 from datetime import datetime
 
-from email_validator import validate_email as validate, EmailNotValidError
+from email_validator import EmailNotValidError
+from email_validator import validate_email as validate
 
 
 def validate_date(value: str) -> bool:

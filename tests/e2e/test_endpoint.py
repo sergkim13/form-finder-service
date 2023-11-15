@@ -1,6 +1,6 @@
-import aiohttp
 from urllib.parse import urlencode
 
+import aiohttp
 import pytest
 
 from tests.test_data import parametrized_values

@@ -1,6 +1,6 @@
-from form_app.services.forms import FormService
-from form_app.repository.mongo_motor import MongoMotorDBRepository
 from form_app.core.config import settings
+from form_app.repository.mongo_motor import MongoMotorDBRepository
+from form_app.services.forms import FormService
 
 
 def get_form_service():

@@ -6,7 +6,7 @@ from starlette.middleware.base import BaseHTTPMiddleware
 from starlette.status import HTTP_422_UNPROCESSABLE_ENTITY
 
 from form_app.services.parser import get_body_params
-from form_app.validation.field_validators import validate_date, validate_phone, validate_email
+from form_app.validation.field_validators import validate_date, validate_email, validate_phone
 
 
 class BodyValdationMiddleware(BaseHTTPMiddleware):

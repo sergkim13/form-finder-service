@@ -1,6 +1,7 @@
-from form_app.repository.abstract import AbstractRepository
 from motor.motor_asyncio import AsyncIOMotorClient
+
 from form_app.core.config import settings
+from form_app.repository.abstract import AbstractRepository
 
 
 class MongoMotorDBRepository(AbstractRepository):
@@ -15,7 +16,7 @@ class MongoMotorDBRepository(AbstractRepository):
         """Return all forms from database."""
         async with await self.client.start_session() as session:
             cursor = self.db.forms.find(session=session)
-            return await cursor.to_list(None)
+            return await cursor.to_list(100)
 
     async def create(self, documents: list[dict]):
         """Create forms."""
