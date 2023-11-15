@@ -4,7 +4,7 @@ from abc import ABC, abstractmethod
 class AbstractRepository(ABC):
 
     @abstractmethod
-    async def get(self, *args, **kwargs):
+    async def read_all(self, *args, **kwargs):
         raise NotImplementedError
 
     @abstractmethod

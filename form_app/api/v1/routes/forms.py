@@ -20,9 +20,12 @@ router = APIRouter(
 async def get_form(
     request: Request,
     form_service: FormService = Depends(get_form_service),
-):  
+) -> str | dict:
+    """
+    Find a form compatible with requests's felds and return it's name.
+    If form not found return a dictionary with request'fields names and types.
+    """
     body = await request.body()
     body_params = get_body_params(body)
-    print(body_params)
     result = await form_service.find_form_template(body_params)
     return result

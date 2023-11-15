@@ -3,7 +3,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from starlette.middleware.sessions import SessionMiddleware
 
-from form_app.api.v1.router import api_router
+from form_app.api.v1.routes.forms import router
 from form_app.core.config import settings
 from form_app.middleware.body_validator import BodyValdationMiddleware
 from form_app.services.utils import populate_db_with_forms
@@ -24,6 +24,6 @@ app = FastAPI(
     redoc_url='/redoc',
     lifespan=lifespan,
 )
-app.include_router(api_router)
+app.include_router(router)
 app.add_middleware(SessionMiddleware, secret_key=settings.SECRET_KEY)
 app.add_middleware(BodyValdationMiddleware)
