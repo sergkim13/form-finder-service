@@ -43,8 +43,8 @@ Made with:
 
 ### Install:
 1. Clone repository: https://github.com/sergkim13/form-finder-service
-2. Type `make compose` for running application in docker container. App will be running at http://0.0.0.0:8000.   
+2. Type `make compose` (or `docker compose up -d`) for running application in docker container. App will be running at http://0.0.0.0:8000.   
 For running test script type `python3 script.py` in project directory, but you need to install requirements and activate virtual environment before that.  
 Also you can run script in running container by typing: `docker exec forms_app sh -c 'python3 -m script'`.
-Type `make stop` to stop app container.  
-3. Type `make compose-test` for running tests in docker container. Type `make stop-test` to stop app container.
+Type `make stop` (or `docker compose down`) to stop app container.  
+3. Type `make compose-test` (or `docker compose -f docker-compose.test.yaml -p testing run --rm test_app`) for running tests in docker container. Type `make stop-test` (or `docker compose -f docker-compose.test.yaml -p testing down`) to stop app container.

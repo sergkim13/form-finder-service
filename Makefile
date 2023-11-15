@@ -5,7 +5,7 @@ stop:
 	docker compose down
 
 compose-test:
-	docker compose -f docker-compose.test.yaml -p testing up -d
+	docker compose -f docker-compose.test.yaml -p testing run --rm test_app
 
 stop-test:
 	docker compose -f docker-compose.test.yaml -p testing down
