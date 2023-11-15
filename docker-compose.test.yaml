@@ -1,28 +1,32 @@
 version: '3.4'
 
 services:
-  app:
-    container_name: forms_app
-    restart: always
+  test_app:
+    container_name: test_forms_app
+    restart: on-failure
     build:
       context: .
       dockerfile: ./Dockerfile
     command: >
-      uvicorn form_app.main:app --host 0.0.0.0 --port 8000 --reload    
+      sh -c "
+        echo 'Launching tests...' &&
+        pytest -vv
+      "
     ports:
       - "8000:8000"
     environment:
       SECRET_KEY: 'very_secret'
-      DB_HOST: 'mongo_db'
+      DB_HOST: 'test_mongo_db'
+      DB_NAME: 'test_db'
     networks:
       - app_network
     depends_on:
-      mongo_db:
+      test_mongo_db:
        condition: service_healthy
 
-  mongo_db:
+  test_mongo_db:
     image: mongo
-    container_name: mongo_db
+    container_name: test_mongo_db
     restart: always
     ports:
       - 27017:27017
